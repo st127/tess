@@ -6,18 +6,35 @@
 	Copyright(C) 2021 tess developers.All rights reserved.
 ]]
 
-local io     = require("io");
-local string = require("string");
+local io		= require("io");
+local string		= require("string");
 
-local modStyle	= require("Style_PlainText");
-local modOutput	= require("Output_PlainText");
-local modParser = require("Parser");
+local modStyle		= require("Style_Document");
+local modOutput		= require("Output_HTML");
+local modParser		= require("Parser");
 
-local style	= modStyle.Style(nil);
-local parser	= modParser.Parser(style);
+local usage_print	= function()
+	print("tess");
+	print("Usage:");
+	print("tess SOURCE_NAME OUTPUT_NAME");
+	return;
+end
 
+local sourceFileName	= arg[1];
+local outputFileName	= arg[2];
 
-local sourceFile= assert(io.open(arg[1],"r"));
+--[[	Check the arguments	]]
+if type(sourceFileName) ~= "string"  or
+   type(outputFileName) ~= "string" then
+	usage_print();
+	return -1;
+end
+
+local output		= modOutput.Output(outputFileName);
+local style		= modStyle.Style(output);
+local parser		= modParser.Parser(style);
+
+local sourceFile= assert(io.open(sourceFileName,"r"));
 local source	= sourceFile:read("a");
 sourceFile:close();
 

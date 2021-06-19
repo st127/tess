@@ -1,2 +1,12 @@
-\code	\ecode
-\p This is a paragragh \ep
+\p This is paragragh \space one \ep
+\p This is paragragh two \ep
+\code
+#include<stdio.h>
+
+int main(void)
+{
+	puts("Hello World\\n");
+	return 0;
+}
+\\p
+\ecode
