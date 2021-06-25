@@ -1,7 +1,7 @@
 --[[
 	tess
 	File:/src/Style.lua
-	Date:2021.06.19
+	Date:2021.06.25
 	By MIT License.
 	Copyright(C) 2021 tess developers.All rights reserved.
 ]]
@@ -40,6 +40,7 @@ local Parser = function (style)
 			style:cmd(cmd);
 			pos = endP;
 		end
+		style:text(escape(string.sub(src,pos)));
 		return;
 	end
 end			
