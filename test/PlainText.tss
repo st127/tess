@@ -2,3 +2,15 @@ This is a toooooooooooooooooooooooooooooo longggggggggggggggggggggggggggggggg li
 =)
 \p This is a test \ep
 \p What is ----	this?\ep
+\p And this... is some code \ep
+\code
+#include<stdio.h>
+
+int main(void)
+{
+	puts("Hello World");
+	return 0;
+}
+\ecode
+\p Function \code puts() \ecode can print string to the screen.\ep
+我也想试试自动换行对于非ASCII文本是否可用,所以我写了这一段很长又很没有用处的文字.终于折行了.还是不够长么?

@@ -23,6 +23,7 @@ local Output		= function(name)
 	local output = {
 			status = {
 					pos	= 0,
+					mode	= false,
 				 },
 			file   = assert(io.open(name,"w"));
 		       };
@@ -50,16 +51,20 @@ local auto_nl		= function(self,text)
 			self.status.pos = 0;
 		end
 
-		if self.status.pos + width > lineWidth
+		print(width);
+
+		if self.status.pos + width > lineWidth and
+		   not self.status.native
 		then
 			table.insert(result,temp);
 			temp = char;
 			self.status.pos = width;
 		elseif char == '\t'
 		then
-			local fillWidth = tabSize - self.status.pos%tabSize;
+			local fillWidth = tabSize - self.status.pos % tabSize;
 
-			if self.status.pos + fillWidth > lineWidth
+			if self.status.pos + fillWidth > lineWidth and
+			   not self.status.mode
 			then
 				self.status.pos = 0;
 				table.insert(result,temp);
@@ -69,7 +74,7 @@ local auto_nl		= function(self,text)
 			end
 		else
 			temp = temp .. char;
-			self.status.pos = self.status.pos + 1;
+			self.status.pos = self.status.pos + width;
 		end
 	end
 	
@@ -79,7 +84,7 @@ local auto_nl		= function(self,text)
 end
 
 local file_write	= function(self,text)
-	self.file:write(auto_nl(self,text));
+	self.file:write(self.status.native and text or auto_nl(self,text));
 end
 
 outputMethod.text	= function(self,text)
@@ -97,6 +102,10 @@ outputMethod.space	= function(self,n)
 	n = n or 1;
 	file_write(self,string.rep(" ",n));
 	return;
+end
+
+outputMethod.native	= function(self,mode)
+	self.status.mode = mode;
 end
 
 outputMethod.close	= function(self)
