@@ -51,8 +51,6 @@ local auto_nl		= function(self,text)
 			self.status.pos = 0;
 		end
 
-		print(width);
-
 		if self.status.pos + width > lineWidth and
 		   not self.status.native
 		then
