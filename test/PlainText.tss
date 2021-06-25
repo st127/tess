@@ -19,3 +19,8 @@ int main(void)
 \line
 \p Compare the strong style and the em style \ep
 \p \strong STRONG\estrong \space \em EM\eem \ep
+\line
+\p What about some arrows? \ep
+\p abcba \lrarr \space abcba \ep
+\p abc \larr \space cba \ep
+\p cba \rarr \space abc \ep

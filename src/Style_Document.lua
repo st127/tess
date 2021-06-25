@@ -14,7 +14,11 @@ local ptsMethod = {};
 local ptsMetaTable = {__index = ptsMethod};
 
 local Style = function(output)
-	local style  = {};
+	local style  = {
+			status = {
+					native = false;
+				 },
+		       };
 	style.output = output;
 	return setmetatable(style,ptsMetaTable);
 end
@@ -37,16 +41,41 @@ end
 
 cmdList.code = function(self)
 	self.output:native(true);
+	self.status.native = true;
 	return;
 end
 
 cmdList.ecode = function(self)
 	self.output:native(false);
+	self.status.native = false;
+	return;
+end
+
+local native_print	= function(self,str)
+	self.output:native(true);
+	self.output:text(str);
+	self.output:native(self.status.native);
+	return;
+end
+
+cmdList.lrarr = function(self)
+	native_print(self,"<==>");
+	return;
+end
+
+cmdList.larr		= function(self)
+	native_print(self,"<===");
+	return;
+end
+
+cmdList.rarr		= function(self)
+	native_print(self,"===>");
+	return;
 end
 
 cmdList.line = function(self)
 	self.output:nl();
-	self.output:text(string.rep("=",lineLength));
+	native_print(self,string.rep("=",lineLength));
 	self.output:nl();
 	return;
 end
