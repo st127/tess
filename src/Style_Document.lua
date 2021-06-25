@@ -6,6 +6,8 @@
 	Copyright(C) 2021 tess developers.All rights reserved.
 ]]
 
+local lineLength <const> = 80;
+
 local string = require("string");
 
 local ptsMethod = {};
@@ -41,6 +43,35 @@ end
 cmdList.ecode = function(self)
 	self.output:native(false);
 end
+
+cmdList.line = function(self)
+	self.output:nl();
+	self.output:text(string.rep("=",lineLength));
+	self.output:nl();
+	return;
+end
+
+cmdList.strong	= function(self)
+	self.output:strong(true);
+	return;
+end
+
+cmdList.estrong = function(self)
+	self.output:strong(false);
+	return;
+end
+
+cmdList.em	= function(self)
+	self.output:em(true);
+	return;
+end
+
+cmdList.eem	= function(self)
+	self.output:em(false);
+	return;
+end
+
+--------------------------------------------------------
 
 ptsMethod.cmd = function(self,cmd)
 	cmdList[cmd](self);

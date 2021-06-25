@@ -14,3 +14,8 @@ int main(void)
 \ecode
 \p Function \code puts() \ecode can print string to the screen.\ep
 我也想试试自动换行对于非ASCII文本是否可用,所以我写了这一段很长又很没有用处的文字.终于折行了.还是不够长么?
+\line
+\p Test the line \ep
+\line
+\p Compare the strong style and the em style \ep
+\p \strong STRONG\estrong \space \em EM\eem \ep

@@ -102,6 +102,16 @@ outputMethod.space	= function(self,n)
 	return;
 end
 
+outputMethod.strong	= function(self,mode)
+	file_write(self,"_");
+	return;
+end
+
+outputMethod.em		= function(self,mode)
+	file_write(self,"*");
+	return;
+end
+
 outputMethod.native	= function(self,mode)
 	self.status.mode = mode;
 end
