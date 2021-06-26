@@ -24,3 +24,10 @@ int main(void)
 \p abcba \lrarr \space abcba \ep
 \p abc \larr \space cba \ep
 \p cba \rarr \space abc \ep
+\line
+\p And,there is a tab \tab in this line \ep
+\line
+\p What about some titles? \ep
+\t1 This is title 1 \et1
+\t2 This is title 2 \et2
+\t3 This is title 3 \et3

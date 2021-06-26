@@ -121,6 +121,12 @@ outputMethod.close	= function(self)
 	return;
 end
 
+outputMethod.tab	= function(self,n)
+	n = n or 1;
+	file_write(self,string.rep("\t",n));
+	return;
+end
+
 return {
 	Output = Output,
        };

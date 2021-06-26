@@ -100,6 +100,60 @@ cmdList.eem	= function(self)
 	return;
 end
 
+cmdList.tab	= function(self)
+	self.output:tab();
+	return;
+end
+
+local title	= function(self,level)
+	local indent = level == 1 and 2 or
+		       level == 2 and 1 or
+		       0;
+	self.output:nl();
+	if indent ~= 0
+	then
+		self.output:tab(indent);
+	else
+		self.output:space(5-level);
+	end
+	return;
+end
+
+local end_title	= function(self,level)
+	self.output:nl();
+	return;
+end
+
+cmdList.t1	= function(self)
+	title(self,1);
+	return;
+end
+
+cmdList.et1	= function(self)
+	end_title(self,1);
+	return;
+end
+
+cmdList.t2	= function(self)
+	title(self,2);
+	return;
+end
+
+cmdList.et2	= function(self)
+	end_title(self,2);
+	return;
+end
+
+cmdList.t3	= function(self)
+	title(self,3);
+	return;
+end
+
+cmdList.et3	= function(self)
+	end_title(self,3);
+	return;
+end
+
 --------------------------------------------------------
 
 ptsMethod.cmd = function(self,cmd)
