@@ -1,3 +1,4 @@
+#!/usr/bin/env lua
 --[[
 	tess
 	File:/src/tess.lua
