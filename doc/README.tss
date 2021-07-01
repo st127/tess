@@ -1,0 +1,25 @@
+\t1 tess\et1
+\t2 简介 \et2
+\p tess是一个简单的文本排版系统,使用Lua编写.目标是实现一个一次编写,到处排版的排版系统\ep
+\p tess基于命令语法,在文本文件中插入命令设置格式\ep
+\line
+\t2 基础结构 \et2
+\p tess由解析器(Parser),样式器(Style),输出器组成(Output) \ep
+\p 源文本文件由Parser解析为命令与文本,在Style中生成相应命令的样式并通过输出器生成为不同格式的文件\ep
+\p Source\rarr [Parser]\rarr Text and Command\rarr [Style]\rarr Command\rarr [Output]\rarr ResultFile \ep
+\p 其中Parser已经实现,无需改动,Style与Output可以进行自定义 \ep
+\line
+\t2 源代码目录 \et2
+\code
+tess
+|src\tab \tab \rarr 源代码
+|test\tab \tab \rarr 测试
+|doc\tab \tab \rarr 文档
+|README\tab \tab \rarr 自述文档
+|LICENSE\tab \rarr 授权协议
+|Developers\tab \rarr 开发者名录
+\ecode
+\line
+\t2 开发者与授权协议 \et2
+\p 开发者名录详见/Developers文档 \ep
+\p tess基于MIT授权协议(详见/LICENSE文件) \ep
