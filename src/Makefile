@@ -2,6 +2,8 @@
 # Makefile for tess
 # File:/src/Makefile
 # Date:2021.07.02
+# By MIT License.
+# Copyright(C) 2021 tess developers.All rights reserved.
 
 # Tools
 LMERGE		:= lmerge
