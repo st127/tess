@@ -1,7 +1,7 @@
 --[[
 	tess
-	File:/src/Style.lua
-	Date:2021.06.25
+	File:/src/Style_Document.lua
+	Date:2021.07.02
 	By MIT License.
 	Copyright(C) 2021 tess developers.All rights reserved.
 ]]
@@ -157,6 +157,13 @@ end
 --------------------------------------------------------
 
 ptsMethod.cmd = function(self,cmd)
+	if not cmdList[cmd]
+	then
+		error({
+			phase	= "style",
+			reason	= "Unexpected Command",
+		      });
+	end
 	cmdList[cmd](self);
 	return;
 end

@@ -2,7 +2,7 @@
 --[[
 	tess
 	File:/src/tess.lua
-	Date:2021.06.25
+	Date:2021.07.02
 	By MIT License.
 	Copyright(C) 2021 tess developers.All rights reserved.
 ]]
@@ -39,7 +39,19 @@ local sourceFile= assert(io.open(sourceFileName,"r"));
 local source	= sourceFile:read("a");
 sourceFile:close();
 
-parser(source);
+local status,reason = pcall(parser,source);
+if not status
+then
+	if type(reason) == "table"
+	then
+		io.stderr:write(string.format("Error:\n\tIn %s:%s\n",
+					      reason.phase,reason.reason));
+		return -1;
+	else
+		io.stderr:write(string.format("Oops!An error occured.\t\n%s\n",reason));
+		return -1;
+	end
+end
 
 style:close();
 output:close();
