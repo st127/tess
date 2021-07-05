@@ -1,7 +1,7 @@
 --[[
 	tess
 	File:/src/Style_Document.lua
-	Date:2021.07.02
+	Date:2021.07.05
 	By MIT License.
 	Copyright(C) 2021 tess developers.All rights reserved.
 ]]
@@ -151,6 +151,11 @@ end
 
 cmdList.et3	= function(self)
 	end_title(self,3);
+	return;
+end
+
+cmdList.nl	= function(self)
+	self.output:nl();
 	return;
 end
 
