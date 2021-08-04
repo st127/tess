@@ -1,7 +1,7 @@
 --[[
 	tess
 	File:/src/Style_Document.lua
-	Date:2021.07.05
+	Date:2021.08.04
 	By MIT License.
 	Copyright(C) 2021 tess developers.All rights reserved.
 ]]
@@ -25,7 +25,7 @@ end
 
 local cmdList = {};
 cmdList.p	= function(self)
-	self.output:space(8);
+	self.output:space(4);
 	return;
 end
 
